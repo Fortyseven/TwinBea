@@ -30,6 +30,10 @@ public class Walter : MonoBehaviour {
         pos.y = _baseY + Mathf.Sin(_c * _yspeed) * 1.0f;
         transform.position = pos;
         _c++;
+
+        if (transform.position.x <= -2.0f) {
+            Destroy(this.gameObject);
+        }
     }
 
 
@@ -39,6 +43,7 @@ public class Walter : MonoBehaviour {
 //        enabled = false;
         collider2D.enabled = false;
         renderer.enabled = false;
+        Game.instance.AdjustScore(100);
         Destroy(this.gameObject,0.5f);
     }
 }

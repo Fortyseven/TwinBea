@@ -19,6 +19,9 @@ public class Cloud : MonoBehaviour
     void Update()
     {
         transform.Translate( -1 * Time.deltaTime * _speed, 0, 0 );  
+        if (transform.position.x <= -2.0f) {
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnTriggerEnter2D( Collider2D other )

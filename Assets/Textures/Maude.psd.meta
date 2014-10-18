@@ -11,6 +11,13 @@ TextureImporter:
     21300012: Arthur_Jaw
     21300014: Cloud
     21300016: Bell
+    21300018: 1UP
+    21300020: Floater_BellScore
+    21300022: Floater_BellPower
+    21300024: Floater_BellSpeed
+    21300026: Floater_Bell100
+    21300028: CoolChristmas
+    21300030: CaldorRainbow
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +63,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 187
+        y: 443
         width: 60
         height: 60
       alignment: 0
@@ -66,7 +73,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 187
-        y: 180
+        y: 436
         width: 63
         height: 66
       alignment: 0
@@ -76,7 +83,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 229
+        y: 485
         width: 31
         height: 14
       alignment: 9
@@ -86,7 +93,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 67
-        y: 186
+        y: 442
         width: 15
         height: 7
       alignment: 0
@@ -95,8 +102,8 @@ TextureImporter:
     - name: Arthur_Head
       rect:
         serializedVersion: 2
-        x: 137
-        y: 69
+        x: 382
+        y: 402
         width: 112
         height: 105
       alignment: 0
@@ -105,8 +112,8 @@ TextureImporter:
     - name: Arthur_Jaw
       rect:
         serializedVersion: 2
-        x: 137
-        y: 23
+        x: 382
+        y: 355
         width: 96
         height: 38
       alignment: 0
@@ -115,10 +122,10 @@ TextureImporter:
     - name: Cloud
       rect:
         serializedVersion: 2
-        x: 5
-        y: 115
-        width: 113
-        height: 53
+        x: 11
+        y: 347
+        width: 154
+        height: 54
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,11 +133,81 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 107
-        y: 209
+        y: 465
         width: 31
         height: 34
       alignment: 9
       pivot: {x: .159109056, y: .883192599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1UP
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 426
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Floater_BellScore
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 449
+        width: 37
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Floater_BellPower
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 468
+        width: 95
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Floater_BellSpeed
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 486
+        width: 88
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Floater_Bell100
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 429
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CoolChristmas
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 299
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaldorRainbow
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 326
+        width: 7
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

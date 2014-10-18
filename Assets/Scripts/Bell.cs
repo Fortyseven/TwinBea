@@ -8,6 +8,12 @@ public class Bell : MonoBehaviour
     int _curColor;
     SpriteRenderer _rend;
 
+    public enum BellType {
+        POINTS,
+        SPEED,
+        SHOTS
+    };
+
     // Use this for initialization
     void Awake()
     {
@@ -34,5 +40,10 @@ public class Bell : MonoBehaviour
             Destroy( other.gameObject );
             audio.Play();
         }
+    }
+
+    public BellType GetBellType()
+    {
+        return (BellType) _curColor;
     }
 }
