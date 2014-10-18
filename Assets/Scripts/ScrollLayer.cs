@@ -5,6 +5,8 @@ public class ScrollLayer : MonoBehaviour
 {
     public float Speed = 1.0f;
     public bool IsMirrored = false;
+    public bool CanTrackPlayer = true;
+
     private float _width, _height;
     private float _tick;
     private GameObject _paralaxLayer;
@@ -12,6 +14,7 @@ public class ScrollLayer : MonoBehaviour
     private int _sortIndex;
 
     private Vector3 _basePos;
+    private bool _trackPlayer;
 
     // leftmost == extents.x
     // rightmost == -extents.x
@@ -19,6 +22,7 @@ public class ScrollLayer : MonoBehaviour
 
     void Awake()
     {
+        _trackPlayer = false;
         _basePos = transform.root.position;
 
         _width = this.renderer.bounds.extents.x * 2;
@@ -55,9 +59,23 @@ public class ScrollLayer : MonoBehaviour
 
     void SetOffset()
     {
-        Vector3 pos = new Vector3(-_tick % _width + _basePos.x, 
-                                  _player.transform.position.y + _basePos.y * 0.05f * _sortIndex,
-                                  _basePos.z);
+        Vector3 pos;
+
+        if (_trackPlayer) {
+            pos = new Vector3(-_tick % _width + _basePos.x, 
+                               _player.transform.position.y + _basePos.y * 0.05f * _sortIndex,
+                               _basePos.z);
+        } else {
+            pos = new Vector3(-_tick % _width + _basePos.x, 
+                               _basePos.y * _sortIndex,
+                               _basePos.z);
+        }
         transform.position = pos;
+    }
+
+    public void SetTrackPlayer(bool track)
+    {
+        if (CanTrackPlayer)
+            _trackPlayer = track;
     }
 }

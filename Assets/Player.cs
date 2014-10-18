@@ -92,4 +92,12 @@ public class Player : MonoBehaviour
     {
         _modfiedSpeed = _NORMALSPEED;
     }
+
+    public void OnAnimIntroFinished()
+    {
+        ScrollLayer[] layers = GameObject.Find("Background").GetComponentsInChildren<ScrollLayer>();
+        for(int i = 0; i < layers.Length; i++) {
+            layers[i].SetTrackPlayer(true);
+        }
+    }
 }
