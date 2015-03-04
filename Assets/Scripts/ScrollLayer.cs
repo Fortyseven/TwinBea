@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ScrollLayer : MonoBehaviour
 {
@@ -9,73 +8,74 @@ public class ScrollLayer : MonoBehaviour
 
     private float _width, _height;
     private float _tick;
-    private GameObject _paralaxLayer;
+    private GameObject _paralax_layer;
     private GameObject _player;
-    private int _sortIndex;
+    private int _sort_index;
 
-    private Vector3 _basePos;
-    private bool _trackPlayer;
+    private Vector3 _base_pos;
+    private bool _track_player;
 
     // leftmost == extents.x
     // rightmost == -extents.x
     // center = 0
 
-    void Awake()
+    public void Awake()
     {
-        _trackPlayer = false;
-        _basePos = transform.root.position;
+        _track_player = false;
+        _base_pos = transform.root.position;
 
-        _width = this.renderer.bounds.extents.x * 2;
-        _height = this.renderer.bounds.extents.y * 2;
+        _width = this.GetComponent<Renderer>().bounds.extents.x * 2;
+        _height = this.GetComponent<Renderer>().bounds.extents.y * 2;
 
-        this.transform.position = new Vector3( _width / 2, _basePos.y, _basePos.z );
+        this.transform.position = new Vector3( _width / 2, _base_pos.y, _base_pos.z );
 
-        _paralaxLayer = new GameObject( this.name + " Paralax Copy" );
+        _paralax_layer = new GameObject( this.name + " Paralax Copy" );
 
         // Just to keep it neat, parent this to my parent
-        _paralaxLayer.transform.parent = this.gameObject.transform;
+        _paralax_layer.transform.parent = this.gameObject.transform;
 
-        SpriteRenderer foo_spr = _paralaxLayer.AddComponent<SpriteRenderer>();
+        SpriteRenderer foo_spr = _paralax_layer.AddComponent<SpriteRenderer>();
         SpriteRenderer my_spr = GetComponent<SpriteRenderer>();
         foo_spr.sprite = my_spr.sprite;
         foo_spr.sortingOrder = my_spr.sortingOrder;
 
-        _paralaxLayer.transform.position = new Vector3( _width * 1.50f, _basePos.y, _basePos.z );
+        _paralax_layer.transform.position = new Vector3( _width * 1.50f, _base_pos.y, _base_pos.z );
 
-        _sortIndex = GetComponent<SpriteRenderer>().sortingOrder;
+        _sort_index = GetComponent<SpriteRenderer>().sortingOrder;
     }
 
-    void Start()
+    public void Start()
     {
-        _player = GameObject.Find("Maude");
+        _player = GameObject.Find( "Maude" );
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         _tick += Time.deltaTime * Speed;
         SetOffset();
     }
 
-    void SetOffset()
+    public void SetOffset()
     {
         Vector3 pos;
 
-        if (_trackPlayer) {
-            pos = new Vector3(-_tick % _width + _basePos.x, 
-                               _player.transform.position.y + _basePos.y * 0.05f * _sortIndex,
-                               _basePos.z);
-        } else {
-            pos = new Vector3(-_tick % _width + _basePos.x, 
-                               _basePos.y * _sortIndex,
-                               _basePos.z);
+        if ( _track_player ) {
+            pos = new Vector3( -_tick % _width + _base_pos.x,
+                               _player.transform.position.y + _base_pos.y * 0.05f * _sort_index,
+                               _base_pos.z );
+        }
+        else {
+            pos = new Vector3( -_tick % _width + _base_pos.x,
+                               _base_pos.y * _sort_index,
+                               _base_pos.z );
         }
         transform.position = pos;
     }
 
-    public void SetTrackPlayer(bool track)
+    public void SetTrackPlayer( bool track )
     {
-        if (CanTrackPlayer)
-            _trackPlayer = track;
+        if ( CanTrackPlayer )
+            _track_player = track;
     }
 }

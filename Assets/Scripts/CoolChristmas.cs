@@ -1,34 +1,36 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class CoolChristmas : MonoBehaviour {
+public class CoolChristmas : MonoBehaviour
+{
 
-    Vector3 offs;
-    int c = 0;
+    Vector3 _offs;
+    float  _c = 0;
 
-    float _baseY, _speed;
+    float _base_y, _speed;
 
-    void Awake()
+    public void Awake()
     {
-        _baseY = transform.position.y;
+        _base_y = transform.position.y;
         _speed = 0.005f;
     }
 
-    void Start () {
-    
-    }
-    
-    
-    void Update () {
-        c++;
+    public void Start()
+    {
 
-        offs = transform.position;
-        offs.y = _baseY + Mathf.Sin(c * 0.1f) * 0.25f;
-        offs.x -= 1.0f * _speed;
-        transform.position = offs;
     }
 
-    void Respawn()
+
+    public void Update()
+    {
+        _c += Time.deltaTime * 100.0f;
+
+        _offs = transform.position;
+        _offs.y = _base_y + Mathf.Sin( _c * 0.1f ) * 0.25f;
+        _offs.x -= 1.0f * _speed;
+        transform.position = _offs;
+    }
+
+    public void Respawn()
     {
 
     }

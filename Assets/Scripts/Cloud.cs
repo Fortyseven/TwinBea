@@ -1,42 +1,40 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Cloud : MonoBehaviour
 {
     public float BaseSpeed = 2.0f;
     public GameObject BellPrefab;
     private float _speed;
-    private bool _hasBell;
+    private bool _has_bell;
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         _speed = BaseSpeed + Random.Range( BaseSpeed - 1.5f, BaseSpeed + 1.5f );
-        _hasBell = true;
+        _has_bell = true;
     }
-    
+
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        transform.Translate( -1 * Time.deltaTime * _speed, 0, 0 );  
-        if (transform.position.x <= -2.0f) {
-            Destroy(this.gameObject);
+        transform.Translate( -1 * Time.deltaTime * _speed, 0, 0 );
+        if ( transform.position.x <= -2.0f ) {
+            Destroy( this.gameObject );
         }
     }
 
     public void OnTriggerEnter2D( Collider2D other )
     {
-        if ( other.tag == "playerbullet" )
-        {
+        if ( other.tag == "playerbullet" ) {
             HitByPlayer();
         }
     }
 
     private void HitByPlayer()
     {
-        if (_hasBell) {
-            _hasBell = false;
-            Instantiate( BellPrefab, this.transform.position, Quaternion.identity );
+        if ( _has_bell ) {
+            _has_bell = false;
+            Instantiate( BellPrefab, transform.position, Quaternion.identity );
         }
     }
 
